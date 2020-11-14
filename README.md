@@ -1,5 +1,10 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+``` r
+knitr::opts_chunk$set(
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
 
 ``` r
 library(ggplot2)

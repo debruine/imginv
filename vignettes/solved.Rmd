@@ -1,5 +1,5 @@
 ---
-title: "Broken :("
+title: "Solved!"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{test}
@@ -7,13 +7,18 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+Solved! Set `dev = "quartz_png"` to override `ragg::agg_png` from pkgdown.
+
 ```{r}
 knitr::opts_chunk$set(
   #fig.path = "man/figures/README-",
   out.width = "100%",
   fig.width = 4, 
-  fig.height = 4
+  fig.height = 4,
+  dev = "quartz_png"
 )
+
+dev.cur()
 ```
 
 
@@ -42,9 +47,6 @@ d <- data.frame(x = 0, y = 0)
 ## Inverted (in vignette)
 
 ```{r}
-
-dev.cur()
-
 ggplot() +
   scale_y_reverse() +
   coord_fixed(xlim = c(0, width),

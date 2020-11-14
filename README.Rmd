@@ -1,0 +1,58 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+
+```{r}
+library(ggplot2)
+```
+
+## Img itself is fine
+
+```{r}
+path <- system.file("f_multi.jpg", package = "imginv")
+img <- magick::image_read(path)
+img
+```
+
+
+```{r}
+i <- grid::rasterGrob(img, interpolate = FALSE)
+width <- 1350
+height <- 1350
+```
+
+
+## Inverted (in vignette)
+
+```{r}
+ggplot() +
+  scale_y_reverse() +
+  coord_fixed(xlim = c(0, width),
+              ylim = c(0, height)) +
+  annotation_custom(i, 0, width, -height, 0)
+```
+
+## Upright
+
+```{r}
+ggplot() +
+  #scale_y_reverse() +
+  coord_fixed(xlim = c(0, width),
+              ylim = c(0, height)) +
+  annotation_custom(i, 0, width, height, 0)
+```
+
+
+

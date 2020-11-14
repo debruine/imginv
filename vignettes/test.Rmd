@@ -25,7 +25,7 @@ library(ggplot2)
 ## Img itself is fine
 
 ```{r}
-path <- system.file("f_multi.jpg", package = "imginv")
+path <- "https://github.com/debruine/imginv/raw/master/inst/f_multi.jpg"
 img <- magick::image_read(path)
 img
 ```
